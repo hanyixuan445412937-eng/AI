@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ORIENTH | Himalayan Ice Crystal</title>
+<style>
+{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;font-weight:300;line-height:1.7;color:#F5F0E8;background:#0A1628;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:400;line-height:1.1}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+button{cursor:pointer;border:none;background:none;font-family:inherit}
+input,select{font-family:inherit}
+::selection{background:rgba(200,167,123,0.3);color:#F5F0E8}
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;500&display=swap');
+.navbar{position:fixed;top:0;left:0;right:0;z-index:50;height:72px;transition:all .4s ease;background:rgba(10,22,40,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(200,167,123,0.1)}
+.navbar__inner{max-width:1400px;margin:0 auto;padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between;height:100%}
+.navbar__brand{font-family:'Cormorant Garamond',serif;font-size:1.125rem;letter-spacing:.2em;text-transform:uppercase;color:#F5F0E8}
+.navbar__nav{display:flex;align-items:center;gap:2.5rem}
+.navbar__link{font-family:'Inter',sans-serif;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(245,240,232,0.8);position:relative;padding:.5rem 0;transition:color .3s}
+.navbar__link:hover{color:#C8A77B}
+.navbar__actions{display:flex;align-items:center;gap:1.25rem}
+.navbar__icon{color:rgba(245,240,232,0.7);transition:color .3s;background:none;border:none;cursor:pointer}
+.navbar__icon:hover{color:#C8A77B}
+.container{max-width:1280px;margin:0 auto;padding:0 1.5rem}
+.label{font-family:'Inter',sans-serif;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:#C8A77B;margin-bottom:1rem;display:block}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-family:'Inter',sans-serif;font-size:.875rem;letter-spacing:.03em;padding:.875rem 2rem;transition:all .3s ease;cursor:pointer;border:none}
+.btn--primary{background:#C8A77B;color:#0A1628}
+.btn--primary:hover{background:#C9A87C}
+.btn--block{width:100%}
+.footer{background:#0A1628;border-top:1px solid rgba(200,167,123,0.1)}
+.footer__grid{display:grid;gap:3rem;padding:4rem 0}
+.footer__title{font-family:'Inter',sans-serif;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:#C8A77B;margin-bottom:1.5rem}
+.footer__links li{margin-bottom:.75rem}
+.footer__links a{font-family:'Inter',sans-serif;font-size:.875rem;color:rgba(245,240,232,0.6);transition:color .3s}
+.footer__links a:hover{color:#F5F0E8}
+.footer__subscribe{display:flex;align-items:center;border-bottom:1px solid rgba(200,167,123,0.3);padding-bottom:.5rem;margin-bottom:1.5rem}
+.footer__subscribe input{flex:1;background:transparent;border:none;outline:none;font-family:'Inter',sans-serif;font-size:.875rem;color:#F5F0E8;padding:.5rem}
+.footer__subscribe input::placeholder{color:rgba(245,240,232,0.3)}
+.footer__subscribe button{color:#C8A77B;transition:color .3s;background:none;border:none;cursor:pointer}
+.footer__socials{display:flex;gap:1rem}
+.footer__socials a{color:rgba(245,240,232,0.4);transition:color .3s}
+.footer__bottom{display:flex;flex-direction:column;align-items:center;gap:1rem;padding:2rem 0;border-top:1px solid rgba(200,167,123,0.1)}
+.footer__brand-name{font-family:'Cormorant Garamond',serif;font-size:.875rem;letter-spacing:.15em;color:#F5F0E8}
+.footer__copyright{font-family:'Inter',sans-serif;font-size:.75rem;color:rgba(245,240,232,0.4)}
+.footer__payments{display:flex;gap:.75rem}
+.footer__payment{font-family:'Inter',sans-serif;font-size:.625rem;color:rgba(245,240,232,0.3);border:1px solid rgba(245,240,232,0.1);padding:.25rem .5rem}
+.product-single{padding-top:72px}
+.product-single__layout{display:grid;gap:3rem;padding:3rem 0 6rem}
+.product-single__gallery{position:relative}
+.product-single__main-img{position:relative;aspect-ratio:4/5;overflow:hidden;background:rgba(10,22,40,0.05)}
+.product-single__main-img img{width:100%;height:100%;object-fit:cover}
+.product-single__thumbs{display:flex;gap:.75rem;margin-top:1rem}
+.product-single__thumb{width:80px;height:100px;border:2px solid #C8A77B;overflow:hidden;flex-shrink:0;cursor:pointer}
+.product-single__thumb img{width:100%;height:100%;object-fit:cover}
+.product-single__category{font-family:'Inter',sans-serif;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:#C8A77B;margin-bottom:.75rem;display:block}
+.product-single__name{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3vw,2.5rem);color:#1E1E1E;margin-bottom:.5rem}
+.product-single__subtitle{font-family:'Cormorant Garamond',serif;font-style:italic;color:#6B6B6B;margin-bottom:1rem}
+.product-single__price{font-family:'Cormorant Garamond',serif;font-size:1.75rem;color:#C8A77B;margin-bottom:1.5rem;display:block}
+.product-single__desc{font-family:'Inter',sans-serif;font-size:.875rem;color:rgba(30,30,30,0.8);line-height:1.7;margin-bottom:1.5rem}
+.materials{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.5rem}
+.material-tag{padding:.375rem .75rem;border:1px solid rgba(30,30,30,0.15);font-family:'Inter',sans-serif;font-size:.75rem;color:#6B6B6B}
+.qty{display:flex;align-items:center;border:1px solid rgba(30,30,30,0.2);height:40px}
+.qty button{padding:0 .75rem;color:rgba(30,30,30,0.6);background:none;border:none;cursor:pointer;font-size:1rem}
+.qty span{font-family:'Inter',sans-serif;font-size:.875rem;color:#1E1E1E;min-width:40px;text-align:center}
+.shipping-note{display:flex;gap:.75rem;padding:1rem;background:rgba(10,22,40,0.05);margin-bottom:1.5rem}
+.shipping-note svg{color:#C8A77B;flex-shrink:0;margin-top:.125rem}
+.shipping-note p{font-family:'Inter',sans-serif;font-size:.75rem;color:#6B6B6B;line-height:1.6}
+.accordion{border-top:1px solid rgba(30,30,30,0.1)}
+.accordion__header{display:flex;align-items:center;justify-content:space-between;width:100%;padding:1rem 0;font-family:'Playfair Display',serif;font-size:.875rem;color:#1E1E1E;background:none;cursor:pointer;border:none}
+.accordion__body{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.accordion__body.open{max-height:500px}
+.accordion__content{padding-bottom:1rem}
+.accordion__content p{font-family:'Inter',sans-serif;font-size:.875rem;color:rgba(30,30,30,0.7);line-height:1.7;margin-bottom:.75rem}
+.meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;padding-top:.5rem}
+.meta-label{font-family:'Inter',sans-serif;font-size:.625rem;letter-spacing:.05em;text-transform:uppercase;color:#6B6B6B;margin-bottom:.25rem}
+.meta-value{font-family:'Inter',sans-serif;font-size:.75rem;color:#1E1E1E}
+.related{background:#F8F6F1;border-top:1px solid rgba(30,30,30,0.1);padding:4rem 0}
+.related-grid{display:grid;gap:2rem}
+.product-card{position:relative}
+.product-card__img{position:relative;aspect-ratio:3/4;overflow:hidden;background:rgba(10,22,40,0.05);margin-bottom:1rem}
+.product-card__img img{width:100%;height:100%;object-fit:cover}
+.product-card__title{font-family:'Playfair Display',serif;font-size:1rem;color:#1E1E1E;margin-bottom:.25rem}
+.product-card__subtitle{font-family:'Inter',sans-serif;font-size:.75rem;color:#6B6B6B;margin-bottom:.5rem}
+.product-card__price{font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:#C8A77B}
+.fade-in-up{opacity:0;transform:translateY(40px);animation:fadeInUp .7s cubic-bezier(0.25,1,0.5,1) forwards}
+@keyframes fadeInUp{to{opacity:1;transform:translateY(0)}}
+@media(min-width:768px){.product-single__layout{grid-template-columns:7fr 5fr;gap:4rem}.related-grid{grid-template-columns:repeat(3,1fr)}.footer__grid{grid-template-columns:repeat(4,1fr);gap:2rem}.footer__bottom{flex-direction:row;justify-content:space-between}}
+@media(max-width:767px){.navbar__nav{display:none}}
+</style>
+</head>
+<body>
+<header class="navbar"><div class="navbar__inner"><a href="./index.html" class="navbar__brand">ORIENTH</a><nav class="navbar__nav"><a href="./shop.html" class="navbar__link">COLLECTIONS</a><a href="./about.html" class="navbar__link">ABOUT US</a></nav><div class="navbar__actions"><a href="./cart.html" class="navbar__icon" style="display:flex;align-items:center;gap:4px;color:rgba(245,240,232,0.7);font-size:.75rem;letter-spacing:.05em;text-transform:uppercase"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 01-8 0"/></svg><span>CART</span></a></div></div></header>
+<div class="container" style="padding-top:6rem;padding-bottom:.5rem"><div style="display:flex;align-items:center;gap:.5rem;font-family:'Inter',sans-serif;font-size:.875rem;color:#6B6B6B"><a href="./index.html">Home</a><span style="color:rgba(107,107,107,0.3)">/</span><a href="./shop.html">Collection</a><span style="color:rgba(107,107,107,0.3)">/</span><span style="color:#1E1E1E">Himalayan Ice Crystal</span></div></div>
+<main class="product-single" style="background:#F8F6F1"><div class="container product-single__layout"><div class="product-single__gallery"><div class="product-single__main-img"><img src="./images/products/product-2.jpg" alt="Himalayan Ice Crystal"></div><div class="product-single__thumbs"><div class="product-single__thumb"><img src="./images/products/product-2.jpg" alt=""></div></div></div><div><span class="product-single__category">Necklace &middot; Protective</span><h1 class="product-single__name">Himalayan Ice Crystal</h1><p class="product-single__subtitle">Raw Mountain Quartz with Silver Mount</p><span class="product-single__price">$280</span><p class="product-single__desc">This crystal was born where the air is too thin for doubt. Gathered at dawn from a riverbed the color of sky, it carries the wild clarity of the Himalayas. The silver mount was hand-engraved with the endless knot, symbolizing the interconnection of all things.</p><div class="materials"><span class="material-tag">Raw Himalayan Clear Quartz</span><span class="material-tag">Sterling Silver (925)</span><span class="material-tag">Braided leather cord</span></div><div style="display:flex;gap:1rem;margin-bottom:1.5rem"><div class="qty"><button>-</button><span>1</span><button>+</button></div><a href="./cart.html" class="btn btn--primary" style="flex:1">Add to Cart</a></div><div class="shipping-note"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="8" width="16" height="13" rx="2"/><path d="M8 8V6a2 2 0 012-2h4a2 2 0 012 2v2"/><path d="M12 16v.01"/><path d="M2 12h20"/></svg><p>Complimentary worldwide shipping on orders over $150. Each piece is hand-packed with protective cushioning and arrives in a cotton storage pouch.</p></div><div class="accordion"><button class="accordion__header" onclick="this.nextElementSibling.classList.toggle('open')"><span>The Story</span><span style="font-size:1.25rem">+</span></button><div class="accordion__body"><div class="accordion__content"><p style="font-style:italic">This crystal was born where the air is too thin for doubt. Gathered at dawn from a riverbed the color of sky, it carries the wild clarity of the Himalayas &mdash; a reminder to trust what you already know. The silver mount was hand-engraved with the endless knot, symbolizing the interconnection of all things.</p><div class="meta-grid"><div><p class="meta-label">Origin</p><p class="meta-value">Gurla Mandhata range, western Tibet</p></div><div><p class="meta-label">Craft Time</p><p class="meta-value">28 days</p></div><div><p class="meta-label">Dimensions</p><p class="meta-value">Crystal 40mm x 22mm, Cord 50cm</p></div><div><p class="meta-label">Materials</p><p class="meta-value">Raw Himalayan Clear Quartz, Sterling Silver (925), Braided leather cord</p></div></div></div></div></div></div></div></main>
+<section class="related"><div class="container"><div style="text-align:center;margin-bottom:3rem"><p style="font-family:'Inter',sans-serif;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:#C8A77B;margin-bottom:.5rem">Continue Exploring</p><h2 style="font-family:'Playfair Display',serif;font-size:1.75rem;color:#1E1E1E">You May Also Like</h2></div><div class="related-grid"><div class="product-card"><a href="./product-smoky-quartz.html"><div class="product-card__img"><img src="./images/products/product-1.jpg" alt="Starfall Smoky Quartz"></div><h3 class="product-card__title">Starfall Smoky Quartz</h3><p class="product-card__subtitle">Handwoven Gold Wire Heritage Pendant</p><span class="product-card__price">$480</span></a></div><div class="product-card"><a href="./product-amethyst-lotus.html"><div class="product-card__img"><img src="./images/products/product-4.jpg" alt="Amethyst Lotus Guardian"></div><h3 class="product-card__title">Amethyst Lotus Guardian</h3><p class="product-card__subtitle">Lotus Silver Wirewrap</p><span class="product-card__price">$260</span></a></div><div class="product-card"><a href="./product-tibetan-citrine.html"><div class="product-card__img"><img src="./images/products/product-5.jpg" alt="Tibetan Sun Citrine"></div><h3 class="product-card__title">Tibetan Sun Citrine</h3><p class="product-card__subtitle">Ornate Silver Heritage Citrine Pendant</p><span class="product-card__price">$180</span></a></div></div></div></section>
+<footer class="footer"><div class="container"><div class="footer__grid"><div><h4 class="footer__title">Help</h4><ul class="footer__links"><li><a href="#">Shipping &amp; Returns</a></li><li><a href="#">Care Guide</a></li><li><a href="#">Size Guide</a></li><li><a href="#">FAQ</a></li></ul></div><div><h4 class="footer__title">Brand</h4><ul class="footer__links"><li><a href="./about.html">Our Story</a></li><li><a href="#">Artisans</a></li><li><a href="#">Sustainability</a></li><li><a href="#">Press</a></li></ul></div><div><h4 class="footer__title">Information</h4><ul class="footer__links"><li><a href="#">Terms of Service</a></li><li><a href="#">Privacy Policy</a></li><li><a href="#">Wholesale</a></li><li><a href="#">Contact</a></li></ul></div><div><span class="footer__title">Stay Connected</span><form class="footer__subscribe" action="#" method="post"><input type="email" placeholder="your@email.com" required><button type="submit" aria-label="Subscribe"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button></form><div class="footer__socials"><a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a><a href="#" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a><a href="#" aria-label="Email"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg></a></div></div></div><div class="footer__bottom"><span class="footer__brand-name">ORIENTH</span><p class="footer__copyright">&copy; 2026 ORIENTH. All rights reserved.</p><div class="footer__payments"><span class="footer__payment">Visa</span><span class="footer__payment">Mastercard</span><span class="footer__payment">Amex</span><span class="footer__payment">PayPal</span></div></div></div></footer>
+</body></html>
